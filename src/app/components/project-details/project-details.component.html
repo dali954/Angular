@@ -1,0 +1,156 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentProject?.id_project">
+      <h4>Project</h4>
+      <div>
+        <label><strong>Equipe:</strong></label>
+        {{ currentProject.equipe.nom_equipe }}
+      </div>
+      <div>
+        <label><strong>name:</strong></label>
+        {{ currentProject.name }}
+      </div>
+      <div>
+        <label><strong>date_debut_project:</strong></label>
+        {{ currentProject.date_debut_project }}
+      </div>
+      <div>
+        <label><strong>date_fin_project:</strong></label>
+        {{ currentProject.date_fin_project }}
+      </div>
+  
+      <a class="badge bg-warning" [routerLink]="['/projects/',currentProject.id_project]">
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentProject">
+      <br />
+      <p>Please click on a Project...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentProject?.id_project" class="edit-form">
+      <h4>Project</h4>
+      <form>
+        <div class="form-group">
+          <label for="equipe">Equipe</label>
+          <select class="form-control" id="equipe" [(ngModel)]="currentProject.equipe.id_equipe" name="equipe">
+            <option *ngFor="let equipe of equipes" [value]="equipe.id_equipe">{{ equipe.nom_equipe }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Name_Project</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="currentProject.name" name="name" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="currentProject.description" name="description" />
+          </div>
+        <div class="form-group">
+          <label for="date_debut_project">Date_debut_project</label>
+          <input type="text" class="form-control" id="date_debut_project" [(ngModel)]="currentProject.date_debut_project" name="date_debut_project" />
+        </div>
+        <div class="form-group">
+          <label for="date_fin_project">Date_fin_project</label>
+          <input type="text" class="form-control" id="date_fin_project" [(ngModel)]="currentProject.date_fin_project" name="date_fin_project" />
+        </div>
+  
+        <button class="badge bg-danger mr-2" (click)="deleteProject()">
+          Delete
+        </button>
+  
+        <button type="submit" class="badge bg-success mb-2" (click)="updateProject()">
+          Update
+        </button>
+        <p>{{ message }}</p>
+      </form>
+  
+      <div *ngIf="!currentProject?.id_project">
+        <br />
+        <p>Cannot access this Project...</p>
+      </div>
+    </div>
+  </ng-template>
+  
+       
+  
+
+
+<!-- 
+   <div *ngIf="viewMode; else editable">
+    <div *ngIf="currentProject?.id_project">
+      <h4>Project</h4>
+      <div>
+        <label><strong>Equipe:</strong></label>
+        {{ currentProject?.equipe?.nom_equipe }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label>
+        {{ currentProject?.name }}
+      </div>
+      <div>
+        <label><strong>Date de début:</strong></label>
+        {{ currentProject?.date_debut_project }}
+      </div>
+      <div>
+        <label><strong>Date de fin:</strong></label>
+        {{ currentProject?.date_fin_project }}
+      </div>
+  
+      <a class="badge bg-warning" [routerLink]="['/projects/', currentProject?.id_project]">
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentProject">
+      <br />
+      <p>Please click on a Project...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentProject?.id_project" class="edit-form">
+      <h4>Project</h4>
+      <form>
+        <div class="form-group">
+          <label for="equipe">Equipe</label>
+          <select class="form-control" id="equipe" [(ngModel)]="currentProject?.equipe?.id_equipe" name="equipe">
+            <option *ngFor="let equipe of equipes" [value]="equipe?.id_equipe">{{ equipe?.nom_equipe }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="currentProject?.name" name="name" />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="description" [(ngModel)]="currentProject?.description" name="description" />
+        </div>
+        <div class="form-group">
+          <label for="date_debut_project">Date de début</label>
+          <input type="text" class="form-control" id="date_debut_project" [(ngModel)]="currentProject?.date_debut_project" name="date_debut_project" />
+        </div>
+        <div class="form-group">
+          <label for="date_fin_project">Date de fin</label>
+          <input type="text" class="form-control" id="date_fin_project" [(ngModel)]="currentProject?.date_fin_project" name="date_fin_project" />
+        </div>
+  
+        <button class="badge bg-danger mr-2" (click)="deleteProject()">
+          Delete
+        </button>
+  
+        <button type="submit" class="badge bg-success mb-2" (click)="updateProject()">
+          Update
+        </button>
+        <p>{{ message }}</p>
+      </form>
+  
+      <div *ngIf="!currentProject?.id_project">
+        <br />
+        <p>Cannot access this Project...</p>
+      </div>
+    </div>
+  </ng-template> -->
+  
+  

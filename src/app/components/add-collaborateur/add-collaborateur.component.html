@@ -1,0 +1,129 @@
+<!-- <div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="profilCollab">ProfilCollab</label>
+            <select class="form-control" id_profil_collab="profilCollab" required [(ngModel)]="collaborateur.profilCollab.id_profil_collab" name="profilCollab">
+              <option *ngFor="let profilCollab of profilCollabs" [value]="profilCollab.id">{{ profilCollab.id }}</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="equipe">Equipe</label>
+            <select class="form-control" id="equipe" required [(ngModel)]="collaborateur.equipe.id" name="equipe">
+              <option *ngFor="let equipe of equipes" [value]="equipe.id">{{ equipe.id }}</option>
+            </select>
+          </div>
+
+        <div class="submit-form">
+            <div *ngIf="!submitted">
+             <div class="form-group">
+                <label for="email">email</label>
+                <input
+                   type="text"
+                   class="form-control"
+                   id="email"
+                   required
+                   [(ngModel)]="collaborateur.email"
+                   name="email"
+                />
+               </div>
+
+                  <div class="submit-form">
+                    <div *ngIf="!submitted">
+                      <div class="form-group">
+                        <label for="username">username</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="username"
+                          required
+                          [(ngModel)]="collaborateur.username"
+                          name="username"
+                        />
+                      </div>
+
+                      <div class="submit-form">
+                        <div *ngIf="!submitted">
+                          <div class="form-group">
+                            <label for="password">password</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="password"
+                              required
+                              [(ngModel)]="collaborateur.password"
+                              name="password"
+                            />
+                          </div> -->
+  
+        <!-- <div class="form-group">
+          <label for="email">email</label>
+          <input
+            class="form-control"
+            id="email"
+            required
+            [(ngModel)]="tutorial.email"
+            name="email"
+          />
+        </div> -->
+  
+        <!-- <button (click)="saveCollaborateur()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>collaborateur was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newCollaborateur()">Add</button>
+      </div>
+    </div>
+  </div>  -->
+
+
+
+  <div>
+    <div class="submit-form">
+      <form [formGroup]="collaborateurForm" (ngSubmit)="saveCollaborateur()">
+        <div *ngIf="!submitted">
+          <div class="form-group">
+            <label for="profilCollab">ProfilCollab</label>
+            <select formControlName="profilCollab" class="form-control" id="profilCollab" required>
+              <option *ngFor="let profilCollab of profilsCollab" [value]="profilCollab.id_profil_collab">{{ profilCollab.nom_profil_collab }}</option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="equipe">Equipe</label>
+            <select formControlName="equipe" class="form-control" id="equipe" required>
+              <option *ngFor="let equipe of equipes" [value]="equipe.id_equipe">{{ equipe.nom_equipe }}</option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" formControlName="email" class="form-control" id="email" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" id="username" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" formControlName="password" class="form-control" id="password" required />
+          </div>
+  
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+  
+      <div *ngIf="submitted">
+        <h4>Collaborateur was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newCollaborateur()">Add</button>
+      </div>
+    </div>
+  </div>
+  
+
+
+ 
